@@ -17,7 +17,7 @@
                 "command": "mingw32-make.exe",
                 "args": [
                     "RAYLIB_PATH=C:/raylib/raylib",
-                    "PROJECT_NAME=${fileBasenameNoExtension}",
+                    "PROJECT_NAME=tetris",
                     "OBJS=src/*.cpp",
                     "BUILD_MODE=DEBUG"
                 ],
@@ -51,7 +51,7 @@
                 "command": "mingw32-make.exe",
                 "args": [
                     "RAYLIB_PATH=C:/raylib/raylib",
-                    "PROJECT_NAME=${fileBasenameNoExtension}",
+                    "PROJECT_NAME=tetris",
                     "OBJS=src/*.cpp"
                 ],
             },
