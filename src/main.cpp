@@ -1,34 +1,19 @@
 #include "raylib.h"
 #include "globals.hpp"
 #include "grid.hpp"
-
-void update();
-void draw();
+#include "game.hpp"
 
 int main() {
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Tetris");
 
-    Grid grid;
-    grid.print();
+    Game game;
 
     while (!WindowShouldClose()) {
-       
-        update();
-        draw();
+        game.update();
+        game.draw();
     }
 
     CloseWindow();
 }
 
-void update() {
-
-}
-
-void draw() {
-    BeginDrawing();
-    ClearBackground(DARKBLUE);
-
-    
-    EndDrawing();
-}
