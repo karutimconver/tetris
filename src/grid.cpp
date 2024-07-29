@@ -24,8 +24,10 @@ void Grid::print() {
 
 void Grid::draw() {
     Vector2 StartingPoint;
-    StartingPoint.x = GetScreenWidth() / 2 - GRID_WIDTH * CellSize / 2 - CellSpacing * GRID_WIDTH / 2 + 1;
+    StartingPoint.x = GetScreenWidth() / 2 - GRID_WIDTH * CellSize / 2 - CellSpacing * GRID_WIDTH / 2 + 1; 
     StartingPoint.y = GetScreenHeight() / 2 - GRID_HEIGHT * CellSize / 2 - CellSpacing * GRID_HEIGHT / 2 + 1;
+
+    DrawRectangle(StartingPoint.x - 3, StartingPoint.y - 3, (CellSize + CellSpacing) * GRID_WIDTH + 3, (CellSize + CellSpacing) * GRID_HEIGHT + 3, DARKGRAY);
 
     for (int i = 0; i < GRID_HEIGHT; i++) {
         for (int j = 0; j < GRID_WIDTH; j++) {

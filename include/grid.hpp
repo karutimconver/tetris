@@ -10,7 +10,7 @@ class Grid {
 private:
     int CellSize = 24;
     unsigned short int CellSpacing = 3;
-    std::array<Color, 7> colors = {DARKGRAY, RED, ORANGE, YELLOW, GREEN, BLUE, MAGENTA};
+    std::array<Color, 7> colors = {BLACK, RED, ORANGE, YELLOW, GREEN, BLUE, MAGENTA};
     
     void clear();
 public:
