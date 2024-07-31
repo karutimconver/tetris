@@ -24,14 +24,14 @@ void Grid::print() {
 
 void Grid::draw() {
     Vector2 StartingPoint;
-    StartingPoint.x = GetScreenWidth() / 2 - GRID_WIDTH * CellSize / 2 - CellSpacing * GRID_WIDTH / 2 + 1; 
-    StartingPoint.y = GetScreenHeight() / 2 - GRID_HEIGHT * CellSize / 2 - CellSpacing * GRID_HEIGHT / 2 + 1;
+    StartingPoint.x = GetScreenWidth() / 2 - GRID_WIDTH * CELL_SIZE / 2 - CellSpacing * GRID_WIDTH / 2 + 1; 
+    StartingPoint.y = GetScreenHeight() / 2 - GRID_HEIGHT * CELL_SIZE / 2 - CellSpacing * GRID_HEIGHT / 2 + 1;
 
-    DrawRectangle(StartingPoint.x - 3, StartingPoint.y - 3, (CellSize + CellSpacing) * GRID_WIDTH + 3, (CellSize + CellSpacing) * GRID_HEIGHT + 3, DARKGRAY);
+    DrawRectangle(StartingPoint.x - 3, StartingPoint.y - 3, (CELL_SIZE + CellSpacing) * GRID_WIDTH + 3, (CELL_SIZE + CellSpacing) * GRID_HEIGHT + 3, DARKGRAY);
 
     for (int i = 0; i < GRID_HEIGHT; i++) {
         for (int j = 0; j < GRID_WIDTH; j++) {
-            DrawRectangle(StartingPoint.x + CellSize * j + CellSpacing * j, StartingPoint.y + CellSize * i + CellSpacing * i, CellSize, CellSize, colors[grid[i][j]]);
+            DrawRectangle(StartingPoint.x + CELL_SIZE * j + CellSpacing * j, StartingPoint.y + CELL_SIZE * i + CellSpacing * i, CELL_SIZE, CELL_SIZE, colors[grid[i][j]]);
         }
     }
 }
