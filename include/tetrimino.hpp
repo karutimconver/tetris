@@ -3,20 +3,24 @@
 #include "raylib.h"
 #include "globals.hpp"
 #include <array>
+#include <unordered_map>
 
-class Tetriminos {
+class Tetrimino {
 protected:
     int rotation_state;
-    std::array<std::array<int, 2>, 4> cells;
+    Color color;
+    std::unordered_map<int, std::array<std::array<int, 2>, 4>> cells;
     Vector2 position;
 public:
+    Tetrimino();
     virtual void update() = 0;
     virtual void rotate() = 0;
-    virtual void draw() = 0;
+    void draw();
 };
 
-class LTetrimino : public Tetriminos {
+class LTetrimino : public Tetrimino {
 public:
+    LTetrimino();
     void update() override;
 };
 
