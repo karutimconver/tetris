@@ -1,6 +1,7 @@
 #include "game.hpp"
 
 Game::Game() : grid() {
+    // debug
     grid.print();
 }
 

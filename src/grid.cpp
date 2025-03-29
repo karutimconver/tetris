@@ -12,6 +12,7 @@ void Grid::clear() {
     }
 }
 
+// debug function
 void Grid::print() {
     std::cout << std::endl;
     for (int i = 0; i < GRID_HEIGHT; i++) {
