@@ -5,7 +5,7 @@ Game::Game() : grid() {
 }
 
 void Game::update() {
-
+    
 }
 
 void Game::draw() {

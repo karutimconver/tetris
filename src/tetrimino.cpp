@@ -19,6 +19,10 @@ LTetrimino::LTetrimino() {
     color = ORANGE;
 }
 
+void LTetrimino::rotate() {
+    
+}
+
 void LTetrimino::update() {
     
 }
