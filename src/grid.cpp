@@ -12,6 +12,10 @@ void Grid::clear() {
     }
 }
 
+void Grid::update() {
+    this->clear();
+}
+
 // debug function
 void Grid::print() {
     std::cout << std::endl;

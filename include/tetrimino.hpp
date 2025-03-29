@@ -8,9 +8,7 @@
 
 class Tetrimino {
 protected:
-    unsigned short int y = 0;
-    unsigned short int x = 0;
-    unsigned short int rotation_state;
+    unsigned short int rotation_state = 0;
     std::unordered_map<int, std::array<std::array<int, 2>, 4>> cells;
     Vector2 position;
 public:
@@ -22,7 +20,7 @@ public:
 
 class LTetrimino : public Tetrimino {
 protected:
-    unsigned short int color = 3; // Orange
+    unsigned short int color = 2; // Orange
 public:
     LTetrimino();
     void update() override;

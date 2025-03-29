@@ -3,6 +3,7 @@
 Game::Game() : grid() {
     // debug
     grid.print();
+    
 }
 
 void Game::update() {
@@ -14,6 +15,7 @@ void Game::draw() {
     ClearBackground(DARKBLUE);
 
     grid.draw();
+    L.draw(&grid);
 
     EndDrawing();
 }

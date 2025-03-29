@@ -15,5 +15,6 @@ public:
 
     Grid();
     void print();
+    void update();
     void draw();
 };
