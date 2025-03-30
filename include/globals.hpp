@@ -11,4 +11,4 @@
 #define GRID_HEIGHT 22
 #define CELL_SIZE 24
 
-extern const std::array<Color, 7> colors;
+extern const std::array<Color, 8> colors;

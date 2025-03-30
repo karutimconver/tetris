@@ -7,15 +7,17 @@ Game::Game() : grid() {
 }
 
 void Game::update() {
-    
+    WaitTime(1);
+    grid.update();
+    L.rotate();
 }
 
 void Game::draw() {
     BeginDrawing();
-    ClearBackground(DARKBLUE);
+    ClearBackground(DARKGRAY);
 
-    grid.draw();
     L.draw(&grid);
+    grid.draw();
 
     EndDrawing();
 }
