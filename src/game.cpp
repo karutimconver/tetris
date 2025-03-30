@@ -7,9 +7,12 @@ Game::Game() : grid() {
 }
 
 void Game::update() {
-    WaitTime(1);
+    float dt = GetFrameTime();
+    timer += dt;
+    std::cout << timer << "\n";
+    //WaitTime(1);
     grid.update();
-    L.rotate();
+    L.update(dt, speed, &grid);
 }
 
 void Game::draw() {

@@ -10,11 +10,15 @@ class Tetromino {
 protected:
     unsigned short int color;
     unsigned short int rotation_state = 0;
+    bool collided = false;
+    float fall_timer = 0;
     std::unordered_map<int, std::array<std::array<int, 2>, 4>> cells;
     Vector2 position;
 public:
-    void update();
     void rotate();
+    void update(float dt, float speed, Grid* frid);
+    void fall(Grid* grid);
+    bool collide(Grid* grid);
     void draw(Grid* grid);
 };
 

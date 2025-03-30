@@ -17,8 +17,30 @@ void Tetromino::rotate() {
         rotation_state = 0;
 }
 
-void Tetromino::update() {
-    
+void Tetromino::fall(Grid* grid) {
+    position.y += 1;
+    if (collide(grid)) {
+        collided = true;
+        position.y -= 1;
+    }
+}
+
+bool Tetromino::collide(Grid* grid) {
+    for (auto& cell: cells[rotation_state]) {
+        if (grid->grid[cell[0] + this->position.y][cell[1] + this->position.x] != 0
+            || position.y + cell[0] >= GRID_HEIGHT)
+            return true;
+    }
+
+    return false;
+}
+
+void Tetromino::update(float dt, float speed, Grid* grid) {
+    fall_timer += dt * speed;
+    if (fall_timer >= 1) {
+        fall_timer = 0;
+        fall(grid);
+    }
 }
 
 void Tetromino::draw(Grid* grid) {
