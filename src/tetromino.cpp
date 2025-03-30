@@ -127,5 +127,13 @@ TTetromino::TTetromino() {
 // --------------------------
 
 SquareTetromino::SquareTetromino() {
+    cells[0] = { { {0, 0}, {1, 0}, {0, 1}, {1, 1} } };
+    cells[1] = { { {0, 0}, {1, 0}, {0, 1}, {1, 1} } };
+    cells[2] = { { {0, 0}, {1, 0}, {0, 1}, {1, 1} } };
+    cells[3] = { { {0, 0}, {1, 0}, {0, 1}, {1, 1} } };
     
+    position.y = 0;
+    position.x = 4;
+
+    color = 3;
 }
