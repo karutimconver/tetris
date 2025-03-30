@@ -6,7 +6,7 @@
 #include <array>
 #include <unordered_map>
 
-class Tetrimino {
+class Tetromino {
 protected:
     unsigned short int color;
     unsigned short int rotation_state = 0;
@@ -19,22 +19,22 @@ public:
 };
 
 
-class LTetrimino : public Tetrimino {
+class LTetromino : public Tetromino {
 public:
-    LTetrimino();
+    LTetromino();
 };
 
-class ReverseLTetrimino : public Tetrimino {
+class ReverseLTetromino : public Tetromino {
 public:
-    ReverseLTetrimino();
+    ReverseLTetromino();
 };
 
-class STetrimino : public Tetrimino {
+class STetromino : public Tetromino {
 public:
-    STetrimino();
+    STetromino();
 };
 
-class ReverseSTetrimino : public Tetrimino {
+class ReverseSTetromino : public Tetromino {
 public:
-    ReverseSTetrimino();
+    ReverseSTetromino();
 };

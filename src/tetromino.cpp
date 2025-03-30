@@ -1,4 +1,4 @@
-#include "tetrimino.hpp"
+#include "tetromino.hpp"
 
 // grid coordinate system
 
@@ -11,27 +11,27 @@
 // P = (y, x) 
 // Starts at block (0,0)
 
-void Tetrimino::rotate() {
+void Tetromino::rotate() {
     rotation_state += 1;
     if (rotation_state > 3)
         rotation_state = 0;
 }
 
-void Tetrimino::update() {
+void Tetromino::update() {
     
 }
 
-void Tetrimino::draw(Grid* grid) {
+void Tetromino::draw(Grid* grid) {
     for (auto& cell: cells[rotation_state])
         grid->grid[cell[0] + this->position.y][cell[1] + this->position.x] = this->color;
 }
 
 
 // ---------------------
-// | L shape tetrimino |
+// | L shape tetromino |
 // ---------------------
 
-LTetrimino::LTetrimino() {
+LTetromino::LTetromino() {
     cells[0] = { { {0, -1}, {0, 0}, {0, 1}, {-1, 1} } };
     cells[1] = { { {-1, 0}, {0, 0}, {1, 0}, {1, 1} } };
     cells[2] = { { {0, 1}, {0, 0}, {0, -1}, {1, -1} } };
@@ -45,10 +45,10 @@ LTetrimino::LTetrimino() {
 
 
 // -----------------------------
-// | reverse L shape tetrimino |
+// | reverse L shape tetromino |
 // -----------------------------
 
-ReverseLTetrimino::ReverseLTetrimino() {
+ReverseLTetromino::ReverseLTetromino() {
     cells[0] = { { {0, 1}, {0, 0}, {0, -1}, {-1, -1} } };
     cells[1] = { { {1, 0}, {0, 0}, {-1, 0}, {-1, 1} } };
     cells[2] = { { {0, -1}, {0, 0}, {0, 1}, {1, 1} } };
@@ -61,10 +61,10 @@ ReverseLTetrimino::ReverseLTetrimino() {
 }
 
 // ---------------------
-// | S shape tetrimino |
+// | S shape tetromino |
 // ---------------------
 
-STetrimino::STetrimino() {
+STetromino::STetromino() {
     cells[0] = { { {0, -1}, {0, 0}, {-1, 0}, {-1, 1} } };
     cells[1] = { { {-1, 0}, {0, 0}, {0, 1}, {1, 1} } };
     cells[2] = { { {1, -1}, {1, 0}, {0, 0}, {0, 1} } };
@@ -77,9 +77,17 @@ STetrimino::STetrimino() {
 }
 
 // -----------------------------
-// | reverse S shape tetrimino |
+// | reverse S shape tetromino |
 // -----------------------------
 
-ReverseSTetrimino::ReverseSTetrimino() {
-    
+ReverseSTetromino::ReverseSTetromino() {
+    cells[0] = { { {-1, -1}, {-1, 0}, {0, 0}, {0, 1} } };
+    cells[1] = { { {-1, 1}, {0, 1}, {0, 0}, {1, 0} } };
+    cells[2] = { { {0, -1}, {0, 0}, {1, 0}, {1, 1} } };
+    cells[3] = { { {1, -1}, {0, -1}, {0, 0}, {-1, 0} } };
+
+    position.y = 1;
+    position.x = 5;
+
+    color = 1;
 }

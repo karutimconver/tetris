@@ -2,12 +2,12 @@
 
 #include "raylib.h"
 #include "grid.hpp"
-#include "tetrimino.hpp"
+#include "tetromino.hpp"
 
 class Game {
 private:
     Grid grid;
-    STetrimino L;
+    ReverseSTetromino L;
 public:
     Game();
     void update();
