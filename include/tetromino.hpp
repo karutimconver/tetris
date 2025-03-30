@@ -38,3 +38,8 @@ class ReverseSTetromino : public Tetromino {
 public:
     ReverseSTetromino();
 };
+
+class ITetromino : public Tetromino {
+public:
+    ITetromino();
+};

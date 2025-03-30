@@ -38,7 +38,7 @@ LTetromino::LTetromino() {
     cells[3] = { { {1, 0}, {0, 0}, {-1, 0}, {-1, -1} } };
 
     position.y = 1;
-    position.x = 5;
+    position.x = 4;
 
     color = 2;
 }
@@ -55,7 +55,7 @@ ReverseLTetromino::ReverseLTetromino() {
     cells[3] = { { {-1, 0}, {0, 0}, {1, 0}, {1, -1} } };
 
     position.y = 1;
-    position.x = 5;
+    position.x = 4;
 
     color = 6;
 }
@@ -71,7 +71,7 @@ STetromino::STetromino() {
     cells[3] = { { {-1, -1}, {0, -1}, {0, 0}, {1, 0} } };
 
     position.y = 1;
-    position.x = 5;
+    position.x = 4;
 
     color = 4;
 }
@@ -87,7 +87,23 @@ ReverseSTetromino::ReverseSTetromino() {
     cells[3] = { { {1, -1}, {0, -1}, {0, 0}, {-1, 0} } };
 
     position.y = 1;
-    position.x = 5;
+    position.x = 4;
 
     color = 1;
+}
+
+// ---------------------
+// | S shape tetromino |
+// ---------------------
+
+ITetromino::ITetromino() {
+    cells[0] = { { {0, -1}, {0, 0}, {0, 1}, {0, 2} } };
+    cells[1] = { { {-1, 1}, {0, 1}, {1, 1}, {2, 1} } };
+    cells[2] = { { {1, -1}, {1, 0}, {1, 1}, {1, 2} } };
+    cells[3] = { { {-1, 0}, {0, 0}, {1, 0}, {2, 0} } };
+    
+    position.y = 1;
+    position.x = 4;
+
+    color = 5;
 }

@@ -7,7 +7,7 @@
 class Game {
 private:
     Grid grid;
-    ReverseSTetromino L;
+    ITetromino L;
 public:
     Game();
     void update();
