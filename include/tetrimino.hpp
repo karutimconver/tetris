@@ -13,18 +13,28 @@ protected:
     std::unordered_map<int, std::array<std::array<int, 2>, 4>> cells;
     Vector2 position;
 public:
-    Tetrimino();
     void update();
     void rotate();
     void draw(Grid* grid);
 };
+
 
 class LTetrimino : public Tetrimino {
 public:
     LTetrimino();
 };
 
-class ReverseLTetrimino: public Tetrimino {
+class ReverseLTetrimino : public Tetrimino {
 public:
     ReverseLTetrimino();
+};
+
+class STetrimino : public Tetrimino {
+public:
+    STetrimino();
+};
+
+class ReverseSTetrimino : public Tetrimino {
+public:
+    ReverseSTetrimino();
 };

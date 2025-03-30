@@ -7,7 +7,7 @@
 class Game {
 private:
     Grid grid;
-    LTetrimino L;
+    STetrimino L;
 public:
     Game();
     void update();

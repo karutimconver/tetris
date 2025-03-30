@@ -11,11 +11,6 @@
 // P = (y, x) 
 // Starts at block (0,0)
 
-Tetrimino::Tetrimino() {
-
-}
-
-
 void Tetrimino::rotate() {
     rotation_state += 1;
     if (rotation_state > 3)
@@ -63,4 +58,28 @@ ReverseLTetrimino::ReverseLTetrimino() {
     position.x = 5;
 
     color = 6;
+}
+
+// ---------------------
+// | S shape tetrimino |
+// ---------------------
+
+STetrimino::STetrimino() {
+    cells[0] = { { {0, -1}, {0, 0}, {-1, 0}, {-1, 1} } };
+    cells[1] = { { {-1, 0}, {0, 0}, {0, 1}, {1, 1} } };
+    cells[2] = { { {1, -1}, {1, 0}, {0, 0}, {0, 1} } };
+    cells[3] = { { {-1, -1}, {0, -1}, {0, 0}, {1, 0} } };
+
+    position.y = 1;
+    position.x = 5;
+
+    color = 4;
+}
+
+// -----------------------------
+// | reverse S shape tetrimino |
+// -----------------------------
+
+ReverseSTetrimino::ReverseSTetrimino() {
+    
 }
