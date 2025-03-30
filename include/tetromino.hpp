@@ -43,3 +43,13 @@ class ITetromino : public Tetromino {
 public:
     ITetromino();
 };
+
+class TTetromino : public Tetromino {
+public:
+    TTetromino();
+};
+
+class SquareTetromino : public Tetromino {
+public:
+    SquareTetromino();
+};

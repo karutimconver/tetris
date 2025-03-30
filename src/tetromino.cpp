@@ -26,7 +26,6 @@ void Tetromino::draw(Grid* grid) {
         grid->grid[cell[0] + this->position.y][cell[1] + this->position.x] = this->color;
 }
 
-
 // ---------------------
 // | L shape tetromino |
 // ---------------------
@@ -42,7 +41,6 @@ LTetromino::LTetromino() {
 
     color = 2;
 }
-
 
 // -----------------------------
 // | reverse L shape tetromino |
@@ -93,7 +91,7 @@ ReverseSTetromino::ReverseSTetromino() {
 }
 
 // ---------------------
-// | S shape tetromino |
+// | I shape tetromino |
 // ---------------------
 
 ITetromino::ITetromino() {
@@ -106,4 +104,28 @@ ITetromino::ITetromino() {
     position.x = 4;
 
     color = 5;
+}
+
+// ---------------------
+// | T shape tetromino |
+// ---------------------
+
+TTetromino::TTetromino() {
+    cells[0] = { { {0, -1}, {0, 0}, {-1, 0}, {0, 1} } };
+    cells[1] = { { {-1, 0}, {0, 0}, {0, 1}, {1, 0} } };
+    cells[2] = { { {0, -1}, {0, 0}, {1, 0}, {0, 1} } };
+    cells[3] = { { {0, -1}, {0, 0}, {-1, 0}, {1, 0} } };
+    
+    position.y = 1;
+    position.x = 4;
+
+    color = 7;
+}
+
+// --------------------------
+// | Sqaure shape tetromino |
+// --------------------------
+
+SquareTetromino::SquareTetromino() {
+    
 }
