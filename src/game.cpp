@@ -43,6 +43,7 @@ void Game::update() {
     UpdateMusicStream(theme);
 
     grid.update();
+
     tetromino->update(dt, speed, &grid);
     if (tetromino->collided) {
         tetromino->storeCells(&occupiedCells);

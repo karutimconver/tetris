@@ -3,8 +3,6 @@
 #include "raylib.h"
 #include "grid.hpp"
 #include "globals.hpp"
-#include <array>
-#include <vector>
 #include <unordered_map>
 
 class Tetromino {

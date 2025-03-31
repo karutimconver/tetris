@@ -3,6 +3,7 @@
 #include "globals.hpp"
 #include "raylib.h"
 #include <iostream>
+#include <vector>
 #include <array>
 
 

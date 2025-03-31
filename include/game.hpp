@@ -4,7 +4,6 @@
 #include "grid.hpp"
 #include "tetromino.hpp"
 #include <memory>
-#include <vector>
 #include <cstdlib>
 
 class Game {
