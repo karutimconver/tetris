@@ -35,7 +35,7 @@ void Grid::draw() {
     StartingPoint.x = GetScreenWidth() / 2 - GRID_WIDTH * CELL_SIZE / 2 - CellSpacing * GRID_WIDTH / 2 + 1; 
     StartingPoint.y = GetScreenHeight() / 2 - GRID_HEIGHT * CELL_SIZE / 2 - CellSpacing * GRID_HEIGHT / 2 + 1;
 
-    DrawRectangle(StartingPoint.x - CellSpacing, StartingPoint.y - CellSpacing, (CELL_SIZE + CellSpacing) * GRID_WIDTH + CellSpacing, (CELL_SIZE + CellSpacing) * GRID_HEIGHT + CellSpacing, GRAY);
+    DrawRectangle(StartingPoint.x - CellSpacing, StartingPoint.y - CellSpacing, (CELL_SIZE + CellSpacing) * GRID_WIDTH + CellSpacing, (CELL_SIZE + CellSpacing) * GRID_HEIGHT + CellSpacing, LIGHTGRAY);
 
     for (int i = 0; i < GRID_HEIGHT; i++) {
         for (int j = 0; j < GRID_WIDTH; j++) {

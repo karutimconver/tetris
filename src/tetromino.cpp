@@ -17,6 +17,10 @@ void Tetromino::rotate() {
         rotation_state = 0;
 }
 
+void Tetromino::controls() {
+    
+}
+
 void Tetromino::fall(Grid* grid) {
     position.y += 1;
     if (collide(grid)) {
@@ -46,6 +50,9 @@ void Tetromino::storeCells(std::vector<std::array<unsigned short int, 3>>* occup
 
 void Tetromino::update(float dt, float speed, Grid* grid) {
     fall_timer += dt * speed;
+
+    controls();
+
     if (fall_timer >= 1) {
         fall_timer = 0;
         fall(grid);

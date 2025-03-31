@@ -16,6 +16,7 @@ public:
     bool collided = false;
 
     void rotate();
+    void controls();
     void update(float dt, float speed, Grid* frid);
     void storeCells(std::vector<std::array<unsigned short int, 3>>* occupiedCells);
     void fall(Grid* grid);
