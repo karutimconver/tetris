@@ -38,7 +38,7 @@ void Game::newTetromino() {
 void Game::update() {
     float dt = GetFrameTime();
     timer += dt;
-    //std::cout << timer << "\n";
+    std::cout << timer << "\n";
 
     UpdateMusicStream(theme);
 
@@ -47,9 +47,7 @@ void Game::update() {
     if (tetromino->collided) {
         tetromino->storeCells(&occupiedCells);
 
-        //for (auto& cell : occupiedCells) {
-        //    std::cout
-        //}
+        
         newTetromino();
     }
 }
