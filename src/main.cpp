@@ -6,6 +6,7 @@
 int main() {
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Tetris");
+    InitAudioDevice();
 
     Game game;
 

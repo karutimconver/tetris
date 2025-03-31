@@ -4,19 +4,22 @@
 #include "grid.hpp"
 #include "globals.hpp"
 #include <array>
+#include <vector>
 #include <unordered_map>
 
 class Tetromino {
 protected:
     unsigned short int color;
     unsigned short int rotation_state = 0;
-    bool collided = false;
     float fall_timer = 0;
     std::unordered_map<int, std::array<std::array<int, 2>, 4>> cells;
     Vector2 position;
 public:
+    bool collided = false;
+
     void rotate();
     void update(float dt, float speed, Grid* frid);
+    void storeCells(std::vector<std::array<unsigned short int, 3>>* occupiedCells);
     void fall(Grid* grid);
     bool collide(Grid* grid);
     void draw(Grid* grid);

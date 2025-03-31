@@ -6,7 +6,7 @@
 // |0000000000
 // |0000P00000
 // |0000000000
-// |0000000000 
+// |0000000000
 // Y
 // P = (y, x) 
 // Starts at block (0,0)
@@ -33,6 +33,15 @@ bool Tetromino::collide(Grid* grid) {
     }
 
     return false;
+}
+
+void Tetromino::storeCells(std::vector<std::array<unsigned short int, 3>>* occupiedCells) {
+    for (auto& cell : cells[rotation_state]) {
+        unsigned short y = cell[0] + this->position.y;
+        unsigned short x = cell[1] + this->position.x;
+
+        occupiedCells->push_back({y, x, this->color});
+    }
 }
 
 void Tetromino::update(float dt, float speed, Grid* grid) {
