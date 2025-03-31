@@ -12,8 +12,11 @@ void Grid::clear() {
     }
 }
 
-void Grid::update() {
+void Grid::update(std::vector<std::array<unsigned short int, 3>>* occupiedCells) {
     this->clear();
+
+    for (auto& cell : *occupiedCells)
+        this->grid[cell[0]][cell[1]] = cell[2];
 }
 
 // debug function

@@ -16,6 +16,6 @@ public:
 
     Grid();
     void print();
-    void update();
+    void update(std::vector<std::array<unsigned short int, 3>>* occupiedCells);
     void draw();
 };
