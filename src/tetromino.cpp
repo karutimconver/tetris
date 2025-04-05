@@ -30,7 +30,8 @@ void Tetromino::rotate(Grid* grid) {
 void Tetromino::controls(Grid* grid) {
     if (IsKeyPressed(KEY_LEFT)) {
         for (auto& cell: cells[rotation_state]) {
-            if (position.x + cell[1] - 1 < 0)
+            if (position.x + cell[1] - 1 < 0
+            ||  grid->grid[position.y + cell[0]][position.x + cell[1] - 1] != 0)
                 return;
         }
         
@@ -39,7 +40,8 @@ void Tetromino::controls(Grid* grid) {
     
     if (IsKeyPressed(KEY_RIGHT)) {
         for (auto& cell: cells[rotation_state]) {
-            if (position.x + cell[1] + 1 >= GRID_WIDTH)
+            if (position.x + cell[1] + 1 >= GRID_WIDTH 
+            ||  grid->grid[position.y + cell[0]][position.x + cell[1] + 1] != 0)
                 return;
         }
 
