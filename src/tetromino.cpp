@@ -11,14 +11,44 @@
 // P = (y, x) 
 // Starts at block (0,0)
 
-void Tetromino::rotate() {
+void Tetromino::rotate(Grid* grid) {
+    for (auto& cell: cells[rotation_state]) {
+        short int cell_x = position.x + cell[1];
+        short int cell_y = position.y + cell[0];
+        if (cell_x >= GRID_WIDTH - 1
+         || cell_x < 0
+         || (grid->grid[cell_y][cell_y] != 0 && grid->grid[cell_y][cell_y] != color)) {
+             return;
+        }
+    }
+    
     rotation_state += 1;
     if (rotation_state > 3)
         rotation_state = 0;
 }
 
-void Tetromino::controls() {
+void Tetromino::controls(Grid* grid) {
+    if (IsKeyPressed(KEY_LEFT)) {
+        for (auto& cell: cells[rotation_state]) {
+            if (position.x + cell[1] - 1 < 0)
+                return;
+        }
+        
+        position.x -= 1;
+    }
     
+    if (IsKeyPressed(KEY_RIGHT)) {
+        for (auto& cell: cells[rotation_state]) {
+            if (position.x + cell[1] + 1 >= GRID_WIDTH)
+                return;
+        }
+
+        position.x += 1;
+    }
+
+    if (IsKeyPressed(KEY_UP)) {
+        rotate(grid);
+    }
 }
 
 void Tetromino::fall(Grid* grid) {
@@ -51,7 +81,7 @@ void Tetromino::storeCells(std::vector<std::array<unsigned short int, 3>>* occup
 void Tetromino::update(float dt, float speed, Grid* grid) {
     fall_timer += dt * speed;
 
-    controls();
+    controls(grid);
 
     if (fall_timer >= 1) {
         fall_timer = 0;

@@ -36,9 +36,14 @@ void Game::newTetromino() {
 }
 
 void Game::update() {
+    if (IsKeyPressed(KEY_P)) {
+        paused = !paused;
+    }
+
+if (!paused) {
     float dt = GetFrameTime();
     timer += dt;
-    std::cout << timer << "\n";
+    //std::cout << timer << "\n";
 
     UpdateMusicStream(theme);
 
@@ -50,6 +55,7 @@ void Game::update() {
 
         newTetromino();
     }
+}
 }
 
 void Game::draw() {

@@ -9,6 +9,7 @@
 class Game {
 private:
     Grid grid;
+    bool paused = false;
     std::unique_ptr<Tetromino> tetromino;
     std::vector<std::array<unsigned short int, 3>> occupiedCells;
     float timer = 0;
