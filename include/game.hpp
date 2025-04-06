@@ -6,14 +6,13 @@
 #include <memory>
 #include <cstdlib>
 
-enum class GameState {RUNNING, MENU};
+enum class GameState {RUNNING, MENU, PAUSED};
 
 
 class Game {
 private:
     GameState gameState = GameState::RUNNING;
     Grid grid;
-    bool paused = false;
     std::unique_ptr<Tetromino> tetromino;
     std::vector<std::array<unsigned short int, 3>> occupiedCells;
     float timer = 0;
