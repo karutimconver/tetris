@@ -36,24 +36,25 @@ void Game::newTetromino() {
 }
 
 void Game::update() {
+if (gameState == GameState::RUNNING) {
     if (IsKeyPressed(KEY_P)) {
         paused = !paused;
     }
 
-if (!paused) {
-    float dt = GetFrameTime();
-    timer += dt;
-    //std::cout << timer << "\n";
+    if (!paused) {
+        float dt = GetFrameTime();
+        timer += dt;
 
-    UpdateMusicStream(theme);
+        UpdateMusicStream(theme);
 
-    grid.update(&occupiedCells);
+        grid.update(&occupiedCells);
 
-    tetromino->update(dt, speed, &grid);
-    if (tetromino->collided) {
-        tetromino->storeCells(&occupiedCells);
+        tetromino->update(dt, speed, &grid);
+        if (tetromino->collided) {
+            tetromino->storeCells(&occupiedCells);
 
-        newTetromino();
+            newTetromino();
+        }
     }
 }
 }

@@ -6,8 +6,12 @@
 #include <memory>
 #include <cstdlib>
 
+enum class GameState {RUNNING, MENU};
+
+
 class Game {
 private:
+    GameState gameState = GameState::RUNNING;
     Grid grid;
     bool paused = false;
     std::unique_ptr<Tetromino> tetromino;
