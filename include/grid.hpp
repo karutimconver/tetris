@@ -12,7 +12,7 @@ private:
     unsigned short int CellSpacing = 2;
     void clear();
     void clearLine();
-    bool hasFullLines();
+    bool hasFullLines(std::vector<int>* fullLines);
 public:
     std::array<std::array<unsigned short int, GRID_WIDTH>, GRID_HEIGHT> grid;
 

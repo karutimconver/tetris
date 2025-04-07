@@ -12,9 +12,8 @@ void Grid::clear() {
     }
 }
 
-bool Grid::hasFullLines() {
+bool Grid::hasFullLines(std::vector<int>* fullLines) {
     unsigned short int c = 0;
-    std::vector<int> fullLines;
 
     for (int y = 0; y < GRID_HEIGHT; y++) {
         for (int x = 0; x < GRID_WIDTH; x++) {
@@ -25,12 +24,12 @@ bool Grid::hasFullLines() {
         }
 
         if (c == GRID_WIDTH)
-            fullLines.push_back(y);
+            fullLines->push_back(y);
             
         c = 0;
     }
 
-    if (fullLines.size() > 0)
+    if (fullLines->size() > 0)
         return true;
     else 
         return false;
@@ -46,7 +45,8 @@ void Grid::update(std::vector<std::array<unsigned short int, 3>>* occupiedCells)
     for (auto& cell : *occupiedCells)
         this->grid[cell[0]][cell[1]] = cell[2];
 
-    if (hasFullLines()) {
+    std::vector<int> fullLines;
+    if (hasFullLines(&fullLines)) {
         std::cout << "1";
     }
 
