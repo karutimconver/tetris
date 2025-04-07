@@ -12,15 +12,16 @@ protected:
     float fall_timer = 0;
     std::unordered_map<int, std::array<std::array<int, 2>, 4>> cells;
     Vector2 position;
+
+    void controls(Grid* grid);
+    void rotate(Grid* grid);
+    void fall(Grid* grid);
+    bool collide(Grid* grid);
 public:
     bool collided = false;
 
-    void rotate(Grid* grid);
-    void controls(Grid* grid);
     void update(float dt, float speed, Grid* grid);
     void storeCells(std::vector<std::array<unsigned short int, 3>>* occupiedCells);
-    void fall(Grid* grid);
-    bool collide(Grid* grid);
     void draw(Grid* grid);
 };
 

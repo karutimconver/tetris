@@ -9,8 +9,9 @@
 
 class Grid {
 private:
-    unsigned short int CellSpacing = 2;    
+    unsigned short int CellSpacing = 2;
     void clear();
+    void clearLine();
 public:
     std::array<std::array<unsigned short int, GRID_WIDTH>, GRID_HEIGHT> grid;
 
