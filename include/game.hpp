@@ -6,7 +6,7 @@
 #include <memory>
 #include <cstdlib>
 
-enum class GameState {RUNNING, MENU, PAUSED};
+enum class GameState {RUNNING, MENU, PAUSED, LOST};
 
 
 class Game {

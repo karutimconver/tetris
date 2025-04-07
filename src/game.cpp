@@ -33,11 +33,17 @@ void Game::newTetromino() {
             this->tetromino = std::make_unique<SquareTetromino>();   
             break;
     }
+
+    if (tetromino->collide(&grid))
+        gameState = GameState::LOST;
 }
 
 void Game::update() {
 switch (gameState) {    
 case GameState::MENU:
+    // TO DO
+
+case GameState::LOST:
     // TO DO
 
 case GameState::PAUSED:

@@ -16,11 +16,11 @@ protected:
     void controls(Grid* grid);
     void rotate(Grid* grid);
     void fall(Grid* grid);
-    bool collide(Grid* grid);
-public:
+    public:
     bool collided = false;
-
+    
     void update(float dt, float speed, Grid* grid);
+    bool collide(Grid* grid);
     void storeCells(std::vector<std::array<unsigned short int, 3>>* occupiedCells);
     void draw(Grid* grid);
 };
