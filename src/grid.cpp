@@ -19,17 +19,6 @@ void Grid::update(std::vector<std::array<unsigned short int, 3>>* occupiedCells)
         this->grid[cell[0]][cell[1]] = cell[2];
 }
 
-// debug function
-void Grid::print() {
-    std::cout << std::endl;
-    for (int i = 0; i < GRID_HEIGHT; i++) {
-        for (int j = 0; j < GRID_WIDTH; j++) {
-            std::cout << grid[i][j] << " ";
-        }
-        std::cout << "\n";
-    }
-}
-
 void Grid::draw() {
     Vector2 StartingPoint;
     StartingPoint.x = GetScreenWidth() / 2 - GRID_WIDTH * CELL_SIZE / 2 - CellSpacing * GRID_WIDTH / 2 + 1; 
@@ -41,5 +30,16 @@ void Grid::draw() {
         for (int j = 0; j < GRID_WIDTH; j++) {
             DrawRectangle(StartingPoint.x + CELL_SIZE * j + CellSpacing * j, StartingPoint.y + CELL_SIZE * i + CellSpacing * i, CELL_SIZE, CELL_SIZE, colors[grid[i][j]]);
         }
+    }
+}
+
+// debug function
+void Grid::print() {
+    std::cout << std::endl;
+    for (int i = 0; i < GRID_HEIGHT; i++) {
+        for (int j = 0; j < GRID_WIDTH; j++) {
+            std::cout << grid[i][j] << " ";
+        }
+        std::cout << "\n";
     }
 }
