@@ -11,8 +11,8 @@ class Grid {
 private:
     unsigned short int CellSpacing = 2;
     void clear();
-    void clearLine();
-    bool hasFullLines(std::vector<int>* fullLines);
+    void clearLines(std::vector<int>* Lines);
+    bool hasFullLines(std::vector<int>* lines);
 public:
     std::array<std::array<unsigned short int, GRID_WIDTH>, GRID_HEIGHT> grid;
 
