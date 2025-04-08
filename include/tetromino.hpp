@@ -16,7 +16,7 @@ protected:
     void controls(Grid* grid);
     void rotate(Grid* grid);
     void fall(Grid* grid);
-    public:
+public:
     bool collided = false;
     
     void update(float dt, float speed, Grid* grid);

@@ -51,6 +51,11 @@ void Tetromino::controls(Grid* grid) {
     if (IsKeyPressed(KEY_UP)) {
         rotate(grid);
     }
+
+    if (IsKeyPressed(KEY_DOWN)) {
+        fall(grid);
+        fall_timer = 0;
+    }
 }
 
 void Tetromino::fall(Grid* grid) {
