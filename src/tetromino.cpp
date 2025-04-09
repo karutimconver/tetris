@@ -12,7 +12,7 @@
 // Starts at block (0,0)
 
 void Tetromino::rotate(Grid* grid) {
-    for (auto& cell: cells[rotation_state + 1 > 3 ? 0 : rotation_state + 1]) {
+    for (auto cell: cells[rotation_state + 1 > 3 ? 0 : rotation_state + 1]) {
         short int cell_x = position.x + cell[1];
         short int cell_y = position.y + cell[0];
         if (cell_x > GRID_WIDTH - 1
@@ -29,7 +29,7 @@ void Tetromino::rotate(Grid* grid) {
 
 void Tetromino::controls(Grid* grid) {
     if (IsKeyPressed(KEY_LEFT)) {
-        for (auto& cell: cells[rotation_state]) {
+        for (auto cell: cells[rotation_state]) {
             if (position.x + cell[1] - 1 < 0
             ||   grid->grid[position.y + cell[0]][position.x + cell[1] - 1] != 0)
                 return;
@@ -39,7 +39,7 @@ void Tetromino::controls(Grid* grid) {
     }
     
     if (IsKeyPressed(KEY_RIGHT)) {
-        for (auto& cell: cells[rotation_state]) {
+        for (auto cell: cells[rotation_state]) {
             if (position.x + cell[1] + 1 >= GRID_WIDTH 
             ||  grid->grid[position.y + cell[0]][position.x + cell[1] + 1] != 0)
                 return;
@@ -67,7 +67,7 @@ void Tetromino::fall(Grid* grid) {
 }
 
 bool Tetromino::collide(Grid* grid) {
-    for (auto& cell: cells[rotation_state]) {
+    for (auto cell: cells[rotation_state]) {
         if (grid->grid[cell[0] + this->position.y][cell[1] + this->position.x] != 0
             || position.y + cell[0] >= GRID_HEIGHT)
             return true;
@@ -77,7 +77,7 @@ bool Tetromino::collide(Grid* grid) {
 }
 
 void Tetromino::storeCells(std::vector<std::array<unsigned short int, 3>>* occupiedCells) {
-    for (auto& cell : cells[rotation_state]) {
+    for (auto cell : cells[rotation_state]) {
         unsigned short y = cell[0] + this->position.y;
         unsigned short x = cell[1] + this->position.x;
 
@@ -97,7 +97,7 @@ void Tetromino::update(float dt, float speed, Grid* grid) {
 }
 
 void Tetromino::draw(Grid* grid) {
-    for (auto& cell: cells[rotation_state])
+    for (auto cell: cells[rotation_state])
         grid->grid[cell[0] + this->position.y][cell[1] + this->position.x] = this->color;
 }
 

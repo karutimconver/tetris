@@ -47,15 +47,26 @@ void Grid::clearLines(std::vector<int>* lines, std::vector<std::array<unsigned s
     }
 }
 
+void Grid::moveDown(std::vector<int>* fullLines, std::vector<std::array<unsigned short int, 3>>* occupiedCells) {
+    for (int i : *fullLines) {
+        for (auto& cell : *occupiedCells) {
+            if (cell[0] < i) {
+                cell[0] += 1;
+            }
+        }
+    }
+}
+
 void Grid::update(std::vector<std::array<unsigned short int, 3>>* occupiedCells) {
     this->clear();
 
-    for (auto& cell : *occupiedCells)
+    for (auto cell : *occupiedCells)
         this->grid[cell[0]][cell[1]] = cell[2];
 
     std::vector<int> fullLines;
     if (hasFullLines(&fullLines)) {
         clearLines(&fullLines, occupiedCells);
+        moveDown(&fullLines, occupiedCells);
     }
 }
 
