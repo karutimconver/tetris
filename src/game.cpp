@@ -33,9 +33,6 @@ void Game::newTetromino() {
             this->tetromino = std::make_unique<SquareTetromino>();   
             break;
     }
-
-    if (tetromino->collide(&grid))
-        gameState = GameState::LOST;
 }
 
 void Game::update() {
@@ -68,6 +65,10 @@ case GameState::RUNNING:
     if (tetromino->collided) {
         tetromino->storeCells(&occupiedCells);
         
+        if (lose())
+            gameState = GameState::LOST;
+
+
         newTetromino();
     }
 }
@@ -81,4 +82,14 @@ void Game::draw() {
     grid.draw();
 
     EndDrawing();
+}
+
+bool Game::lose() {
+    for (auto cell : occupiedCells) {
+        if (cell[0] == 0) {
+            return true;
+        } 
+    }
+
+    return false;
 }

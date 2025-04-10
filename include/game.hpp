@@ -18,9 +18,11 @@ private:
     float timer = 0;
     float speed = 2.0f;
     Music theme;
+
+    void newTetromino();
+    bool lose();
 public:
     Game();
     void update();
-    void newTetromino();
     void draw();
 };
