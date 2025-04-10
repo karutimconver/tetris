@@ -65,9 +65,10 @@ case GameState::RUNNING:
     if (tetromino->collided) {
         tetromino->storeCells(&occupiedCells);
         
-        if (lose())
+        if (lose()) {
+            grid.update(&occupiedCells);
             gameState = GameState::LOST;
-
+        }
 
         newTetromino();
     }
