@@ -52,9 +52,8 @@ void Tetromino::controls(Grid* grid) {
         rotate(grid);
     }
 
-    if (IsKeyPressed(KEY_DOWN)) {
-        fall(grid);
-        fall_timer = 0;
+    if (IsKeyDown(KEY_DOWN)) {
+        speed = 10.0f;
     }
 }
 
@@ -86,9 +85,10 @@ void Tetromino::storeCells(std::vector<std::array<unsigned short int, 3>>* occup
 }
 
 void Tetromino::update(float dt, float speed, Grid* grid) {
-    fall_timer += dt * speed;
-
+    this->speed = speed;
     controls(grid);
+    
+    fall_timer += dt * this->speed;
 
     if (fall_timer >= 1) {
         fall_timer = 0;

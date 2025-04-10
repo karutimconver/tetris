@@ -10,6 +10,7 @@ protected:
     unsigned short int color;
     unsigned short int rotation_state = 0;
     float fall_timer = 0;
+    float speed = 1.0f;
     std::unordered_map<int, std::array<std::array<int, 2>, 4>> cells;
     Vector2 position;
 
