@@ -56,7 +56,15 @@ case GameState::RUNNING:
 
     float dt = GetFrameTime();
     timer += dt;
-    
+
+    double a = (1.0/30.0);
+    int m = 8;
+    int c = 3;
+    int b = 1;
+
+    speed = b + m / (1 + std::exp(-(a * timer - c)));
+    std::cout << speed << "\n";
+
     UpdateMusicStream(theme);
     
     grid.update(&occupiedCells);
@@ -68,7 +76,6 @@ case GameState::RUNNING:
         if (lose()) {
             grid.update(&occupiedCells);
             gameState = GameState::LOST;
-            break;
         }
 
         newTetromino();

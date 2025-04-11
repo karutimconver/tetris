@@ -3,8 +3,9 @@
 #include "raylib.h"
 #include "grid.hpp"
 #include "tetromino.hpp"
-#include <memory>
 #include <cstdlib>
+#include <memory>
+#include <cmath>
 
 enum class GameState {RUNNING, MENU, PAUSED, LOST};
 
