@@ -68,6 +68,7 @@ case GameState::RUNNING:
         if (lose()) {
             grid.update(&occupiedCells);
             gameState = GameState::LOST;
+            break;
         }
 
         newTetromino();
