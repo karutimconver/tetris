@@ -39,9 +39,11 @@ void Game::update() {
 switch (gameState) {    
 case GameState::MENU:
     // TO DO
+    break;
 
 case GameState::LOST:
     // TO DO
+    break;
 
 case GameState::PAUSED:
     if (IsKeyPressed(KEY_P))
