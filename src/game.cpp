@@ -59,7 +59,7 @@ case GameState::RUNNING:
     float dt = GetFrameTime();
     timer += dt;
 
-    double a = (1.0/30.0);
+    double a = (1.0/200.0);
     int m = 8;
     int c = 3;
     int b = 1;
@@ -78,6 +78,7 @@ case GameState::RUNNING:
         if (lose()) {
             grid.update(&occupiedCells);
             gameState = GameState::LOST;
+            break;
         }
 
         newTetromino();
