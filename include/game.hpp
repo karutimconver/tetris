@@ -20,6 +20,7 @@ private:
     float speed = 2.0f;
     Music theme;
 
+    void start();
     void newTetromino();
     bool lose();
 public:

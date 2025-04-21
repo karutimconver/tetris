@@ -2,6 +2,12 @@
 
 Game::Game() : grid() {
     theme = LoadMusicStream("resources/music/Tetris.mp3");
+    start();
+}
+
+void Game::start() {
+    grid = Grid();
+
     PlayMusicStream(theme);
 
     newTetromino();
@@ -89,9 +95,14 @@ case GameState::RUNNING:
 void Game::draw() {
     BeginDrawing();
     ClearBackground(DARKGRAY);
-
-    tetromino->draw(&grid);
-    grid.draw();
+    
+    if (gameState == GameState::MENU) {
+        //DrawText("press s to start the game");
+    }
+    else if (gameState == GameState::RUNNING || gameState == GameState::LOST) {
+        tetromino->draw(&grid);
+        grid.draw();
+    }
 
     EndDrawing();
 }
