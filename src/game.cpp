@@ -1,6 +1,6 @@
 #include "game.hpp"
 
-Game::Game() : grid() {
+Game::Game() {
     theme = LoadMusicStream("resources/music/Tetris.mp3");
     start();
 }
@@ -9,6 +9,7 @@ void Game::start() {
     grid = Grid();
 
     PlayMusicStream(theme);
+    occupiedCells.clear();
 
     newTetromino();
 }
@@ -44,7 +45,9 @@ void Game::newTetromino() {
 void Game::update() {
 switch (gameState) {    
 case GameState::MENU:
-    // TO DO
+    if (IsKeyPressed(KEY_S)) {
+        gameState = GameState::RUNNING;
+    }
     break;
 
 case GameState::LOST:

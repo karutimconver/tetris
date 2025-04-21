@@ -12,7 +12,7 @@ enum class GameState {RUNNING, MENU, PAUSED, LOST};
 
 class Game {
 private:
-    GameState gameState = GameState::RUNNING;
+    GameState gameState = GameState::MENU;
     Grid grid;
     std::unique_ptr<Tetromino> tetromino;
     std::vector<std::array<unsigned short int, 3>> occupiedCells;
