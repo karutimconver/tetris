@@ -2,7 +2,8 @@
 
 Game::Game() {
     theme = LoadMusicStream("resources/music/Tetris.mp3");
-    start();
+
+    font = LoadFont("resources/font/Font.ttf");
 }
 
 void Game::start() {
@@ -46,6 +47,7 @@ void Game::update() {
 switch (gameState) {    
 case GameState::MENU:
     if (IsKeyPressed(KEY_S)) {
+        start();
         gameState = GameState::RUNNING;
     }
     break;
@@ -100,7 +102,7 @@ void Game::draw() {
     ClearBackground(DARKGRAY);
     
     if (gameState == GameState::MENU) {
-        //DrawText("press s to start the game");
+        //DrawTextPro(font);
     }
     else if (gameState == GameState::RUNNING || gameState == GameState::LOST) {
         tetromino->draw(&grid);

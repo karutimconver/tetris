@@ -19,6 +19,7 @@ private:
     float timer = 0;
     float speed = 2.0f;
     Music theme;
+    Font font;
 
     void start();
     void newTetromino();
