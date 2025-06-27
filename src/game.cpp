@@ -46,14 +46,17 @@ void Game::newTetromino() {
 void Game::update() {
 switch (gameState) {    
 case GameState::MENU:
-    if (IsKeyPressed(KEY_S)) {
+    if (IsKeyPressed(KEY_ENTER)) {
         start();
         gameState = GameState::RUNNING;
     }
     break;
 
 case GameState::LOST:
-    // TO DO
+    if (IsKeyPressed(KEY_ENTER)) {
+        start();
+        gameState = GameState::RUNNING;
+    }
     break;
 
 case GameState::PAUSED:
@@ -102,11 +105,25 @@ void Game::draw() {
     ClearBackground(DARKGRAY);
     
     if (gameState == GameState::MENU) {
-        //DrawTextPro(font);
+        float x = (float) GetScreenWidth() / 2.0f;
+        float y = (float) GetScreenHeight() / 2.0f;
+        int length = 21;
+        int size = 16;
+        int spacing = 2;
+        DrawTextEx(font, "press enter to start", {x - length * size / 2 - spacing * (length - 1) / 2, y}, size, spacing, WHITE);
     }
-    else if (gameState == GameState::RUNNING || gameState == GameState::LOST) {
+    else {
         tetromino->draw(&grid);
         grid.draw();
+    }
+
+    if (gameState == GameState::LOST) {
+        float x = (float) GetScreenWidth() / 2.0f;
+        float y = (float) GetScreenHeight() / 2.0f;
+        int length = 23;
+        int size = 16;
+        int spacing = 2;
+        DrawTextEx(font, "press enter to restart", {x - length * size / 2, y}, size, spacing, WHITE);
     }
 
     EndDrawing();
