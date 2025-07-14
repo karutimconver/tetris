@@ -110,6 +110,7 @@ void Game::draw() {
         int length = 21;
         int size = 16;
         int spacing = 2;
+
         DrawTextEx(font, "press enter to start", {x - length * size / 2 - spacing * (length - 1) / 2, y}, size, spacing, WHITE);
     }
     else {
