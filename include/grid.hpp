@@ -12,7 +12,7 @@ class Grid {
 private:
     unsigned short int CellSpacing = 2;
     void clear();
-    void clearLines(std::vector<int>* fullLines, std::vector<std::array<unsigned short int, 3>>* occupiedCells);
+    void clearLines(std::vector<int>* fullLines, std::vector<std::array<unsigned short int, 3>>* occupiedCells, int* score);
     void moveDown(std::vector<int>* lines, std::vector<std::array<unsigned short int, 3>>* occupiedCells);
     bool hasFullLines(std::vector<int>* lines);
 public:
@@ -20,6 +20,6 @@ public:
 
     Grid();
     void print();
-    void update(std::vector<std::array<unsigned short int, 3>>* occupiedCells);
+    void update(std::vector<std::array<unsigned short int, 3>>* occupiedCells, int* score);
     void draw();
 };

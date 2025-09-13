@@ -35,8 +35,11 @@ bool Grid::hasFullLines(std::vector<int>* fullLines) {
         return false;
 }
 
-void Grid::clearLines(std::vector<int>* lines, std::vector<std::array<unsigned short int, 3>>* occupiedCells) {
+void Grid::clearLines(std::vector<int>* lines, std::vector<std::array<unsigned short int, 3>>* occupiedCells, int* score) {
+    int c = 0;
+
     for (auto y : *lines) {
+        c++;
         for (int x = 0; x < GRID_WIDTH; x++) {
             grid[y][x] = 0;
         }
@@ -44,6 +47,18 @@ void Grid::clearLines(std::vector<int>* lines, std::vector<std::array<unsigned s
         occupiedCells->erase(std::remove_if(occupiedCells->begin(), occupiedCells->end(), [&](std::array<unsigned short int, 3> cell) {
             return (cell[0] == y);
         }), occupiedCells->end());
+    }
+
+    int base = 50;
+    switch (c){
+        case 1:
+            *score += base; break;
+        case 2:
+            *score += (int) ((float) base * 2.5); break;
+        case 3:
+            *score += base * 6; break;
+        case 4:
+            *score += base * 10; break;
     }
 }
 
@@ -57,7 +72,7 @@ void Grid::moveDown(std::vector<int>* fullLines, std::vector<std::array<unsigned
     }
 }
 
-void Grid::update(std::vector<std::array<unsigned short int, 3>>* occupiedCells) {
+void Grid::update(std::vector<std::array<unsigned short int, 3>>* occupiedCells, int* score) {
     this->clear();
 
     for (auto cell : *occupiedCells)
@@ -65,7 +80,7 @@ void Grid::update(std::vector<std::array<unsigned short int, 3>>* occupiedCells)
 
     std::vector<int> fullLines;
     if (hasFullLines(&fullLines)) {
-        clearLines(&fullLines, occupiedCells);
+        clearLines(&fullLines, occupiedCells, score);
         moveDown(&fullLines, occupiedCells);
     }
 }

@@ -73,7 +73,7 @@ case GameState::RUNNING:
     float dt = GetFrameTime();
     timer += dt;
 
-    double a = (1.0/200.0);
+    float a = (1.0/200.0);
     int m = 8;
     int c = 3;
     int b = 1;
@@ -83,14 +83,14 @@ case GameState::RUNNING:
 
     UpdateMusicStream(theme);
     
-    grid.update(&occupiedCells);
+    grid.update(&occupiedCells, &score);
     
     tetromino->update(dt, speed, &grid);
     if (tetromino->collided) {
         tetromino->storeCells(&occupiedCells);
         
         if (lose()) {
-            grid.update(&occupiedCells);
+            grid.update(&occupiedCells, &score);
             gameState = GameState::LOST;
             break;
         }
@@ -114,6 +114,30 @@ void Game::draw() {
         DrawTextEx(font, "press enter to start", {x - length * size / 2 - spacing * (length - 1) / 2, y}, size, spacing, WHITE);
     }
     else {
+        int length = 5;
+        int size = 16;
+        int spacing = 2;
+        float x = 100;
+        float y = 100;
+        
+        const char* text;
+
+        switch ((int) log10(score)) {
+            case 1:
+                text = TextFormat("0000%d", score); break;
+            case 2:
+                text = TextFormat("000%d", score); break;
+            case 3:
+                text = TextFormat("00%d", score); break;
+            case 4:
+                text = TextFormat("0%d", score); break;
+            default:
+                text = TextFormat("%d", score);
+                if (score == 0)
+                    text = TextFormat("0000%d", score);
+        }
+
+        DrawTextEx(font, text, {x - length * size / 2 - spacing * (length - 1) / 2, y}, size, spacing, WHITE);
         tetromino->draw(&grid);
         grid.draw();
     }
